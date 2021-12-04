@@ -1,9 +1,15 @@
+import { useState } from 'react';
 import './App.css';
+import getBanknotes from './logic/getBanknotes';
+import { ICash } from './types';
 
 function App() {
+
+ 
+
   return (
-    <div className="App">
-      <h1>Hello</h1>
+   <div className="App">
+     Hello
     </div>
   );
 }
