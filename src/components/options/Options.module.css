@@ -1,0 +1,40 @@
+
+
+.options__input{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	max-width: 100rem;
+	padding-left: 20%;
+	padding-right: 20%;
+	/* margin: 0 auto; */
+	margin-top: 2rem;
+}
+
+.options__output{
+	font-size: 4rem;
+	background-color: aliceblue;
+	margin-top: 2rem;
+	display: inline-block;
+}
+
+.button{
+	width: 10rem;
+	height: 10rem;
+	text-align: center;
+	font-size: 2rem;
+	border-radius: 2rem;
+	background-color: bisque;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+
+.button:hover{
+	background-color: chocolate;
+}
+
+.active{
+	background-color: chocolate;
+}
