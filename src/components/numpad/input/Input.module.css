@@ -1,0 +1,21 @@
+.input{
+display: flex;
+flex-direction: column;
+}
+
+.input__text{
+	width: 25%;
+	height: 2.5rem;
+	border: 2px solid gray;
+	border-radius: .6rem;
+	display: inline-block;
+}
+
+.input__error{
+	display: inline-block;
+	color: crimson;
+	font-size: 1.6rem;
+	width: 25%;
+	height: 2.5rem;
+	margin-top: .5rem;
+}

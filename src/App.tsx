@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react';
 import './App.css';
+import Input from './components/numpad/input/Input';
 import Options from './components/options/Options';
 import MainContext from './context/MainContext';
 import getBanknotes from './logic/getBanknotes';
@@ -22,6 +23,7 @@ function App() {
   return (
    <div className="App">
      <Options options={options}/>
+      <Input/>
     </div>
     
   );
