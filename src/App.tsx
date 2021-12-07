@@ -1,12 +1,16 @@
 import { useContext, useState } from 'react';
+import { Type } from 'typescript';
 import './App.css';
+import Button from './components/numpad/button/Button';
 import Input from './components/numpad/input/Input';
+import Numpad from './components/numpad/Numpad';
 import Options from './components/options/Options';
 import MainContext from './context/MainContext';
 import getBanknotes from './logic/getBanknotes';
-import { IBanknotes, ICash } from './types';
+import { IBanknotes, ICash, } from './types';
 
 function App() {
+
 
  const options: IBanknotes[] = [
    {'5000': 100, '2000':400, '1000': 1000, '500': 3000,'200': 5000, '100':8000,'50': 10000},
@@ -17,13 +21,23 @@ function App() {
    {'5000': 73, '2000':147, '1000': 279, '500': 356,'200': 696, '100':857,'50': 854}
  ]
 
- const {variant, setVariant}=useContext(MainContext)
+ const [overflow, setOwerflow] = useState(false)
+ const {variant}=useContext(MainContext)
+
+ const [result, setResult] = useState<ICash>()
+
+ const getResult = (amount: number) => {
+   const res = getBanknotes(amount, variant)
+
+   Object.keys(res).length > 1 ? setResult(res as ICash) : setOwerflow(true);
+ }
 
 
   return (
    <div className="App">
      <Options options={options}/>
-      <Input/>
+      <Numpad res={getResult}/>   
+     
     </div>
     
   );

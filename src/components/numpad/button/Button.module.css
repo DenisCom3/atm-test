@@ -1,0 +1,17 @@
+.button{
+	width: 10rem;
+	height: 10rem;
+	text-align: center;
+	font-size: 4rem;
+	border-radius: 2rem;
+	background-color: bisque;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	margin: .5rem;
+}
+
+.button:hover{
+	background-color: chocolate;
+}

@@ -5,8 +5,8 @@
 	align-items: center;
 	justify-content: space-between;
 	max-width: 100rem;
-	padding-left: 20%;
-	padding-right: 20%;
+	padding-left: 30%;
+	padding-right: 30%;
 	/* margin: 0 auto; */
 	margin-top: 2rem;
 }
@@ -19,10 +19,10 @@
 }
 
 .button{
-	width: 10rem;
-	height: 10rem;
+	min-width: 7rem;
+	min-height: 7rem;
 	text-align: center;
-	font-size: 2rem;
+	font-size: 4rem;
 	border-radius: 2rem;
 	background-color: bisque;
 	display: flex;

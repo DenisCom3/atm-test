@@ -1,0 +1,7 @@
+.buttons{
+	width: 33rem;
+	height: 50rem;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 1rem;
+}
