@@ -3,4 +3,21 @@
 }
 
 
+.info{
+  width: 7.5rem;
+  height: 7.5rem;
+  background-image: url(./assets/img/info.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: fixed;
+  bottom: 3rem;
+  right: 3rem;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.info:hover{
+  opacity: 1;
+}
+
 

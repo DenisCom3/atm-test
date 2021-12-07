@@ -1,11 +1,11 @@
-import { useContext, useState } from 'react';
-import { Type } from 'typescript';
+import { useContext, useMemo, useState } from 'react';
 import './App.css';
-import Button from './components/numpad/button/Button';
-import Input from './components/numpad/input/Input';
+import Balance from './components/balance/Balance';
+import Modal from './components/modal/Modal';
 import Numpad from './components/numpad/Numpad';
 import Options from './components/options/Options';
 import MainContext from './context/MainContext';
+import balanceATM from './logic/balanceATM';
 import getBanknotes from './logic/getBanknotes';
 import { IBanknotes, ICash, } from './types';
 
@@ -22,9 +22,14 @@ function App() {
  ]
 
  const [overflow, setOwerflow] = useState(false)
- const {variant}=useContext(MainContext)
+
+const {variant} = useContext(MainContext)
+ const [visible, setVisible] = useState(false)
 
  const [result, setResult] = useState<ICash>()
+
+
+ const [balance, setBalance] = useState(variant)
 
  const getResult = (amount: number) => {
    const res = getBanknotes(amount, variant)
@@ -32,11 +37,28 @@ function App() {
    Object.keys(res).length > 1 ? setResult(res as ICash) : setOwerflow(true);
  }
 
+ useMemo(() => {
+  setBalance(variant)
+ }, [variant])
+
+useMemo(() => {
+  if(result === undefined) return 
+  setBalance(prev => 
+    balanceATM(result, prev)
+  )
+}, [result])
+
 
   return (
    <div className="App">
-     <Options options={options}/>
+     <Options options={options} />
       <Numpad res={getResult}/>   
+      <Modal visible={visible} setVisible={setVisible}>
+        <Balance balance={balance} />
+      </Modal> 
+      <div className="info" onClick={()=>setVisible(true)}></div>
+
+
      
     </div>
     

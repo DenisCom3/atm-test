@@ -5,9 +5,10 @@ import styles from './Options.module.css'
 
 interface Props {
 	options: IBanknotes[]
+	
 }
 
- const Options:FC<Props> = ({options}) => {
+ const Options:FC<Props> = ({options,}) => {
 	 
 	const {variant, setVariant}=useContext(MainContext)
 

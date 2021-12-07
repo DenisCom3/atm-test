@@ -9,7 +9,6 @@ interface Props {
 
 const Numpad:FC<Props> = ({res}) => {
 
-	const numbers = [1,2,3,4,5,6,7,8,9]
 	const buttons = ['1','2','3','4','5','6','7','8','9','.','0','$']
 
 	const [incorrect, setIncorrect] = useState<boolean>(false)
@@ -36,7 +35,7 @@ const Numpad:FC<Props> = ({res}) => {
 		
 		switch (value) {
 			case '$':
-				res(parseFloat(InputValues));
+				if(!incorrect) res(parseFloat(InputValues));
 				break;
 			default:
 				setInputValues((prev) => prev+value)
