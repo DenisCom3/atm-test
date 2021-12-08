@@ -1,0 +1,16 @@
+.output{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 30rem;
+}
+.std {
+	width: 30rem;
+}
+
+.output__item{
+	font-size: 3rem;
+	font-weight: 600;
+	display: inline-block;
+}

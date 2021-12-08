@@ -1,0 +1,10 @@
+.balance{
+	display: flex;
+	flex-direction: column;
+
+}
+
+.balance__item{
+	font-size: 2.4rem;
+	font-weight: 600;
+}

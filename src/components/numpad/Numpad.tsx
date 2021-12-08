@@ -1,13 +1,13 @@
-import React, { FC, Fragment, useState } from 'react'
+import React, { FC,  useState } from 'react'
 import Button from './button/Button'
 import Input from './input/Input'
 import styles from './Numpad.module.css'
 
 interface Props {
-	res: (v: number) => void
+	getResult: (v: number) => void
 }
 
-const Numpad:FC<Props> = ({res}) => {
+const Numpad:FC<Props> = ({getResult}) => {
 
 	const buttons = ['1','2','3','4','5','6','7','8','9','.','0','$']
 
@@ -35,7 +35,9 @@ const Numpad:FC<Props> = ({res}) => {
 		
 		switch (value) {
 			case '$':
-				if(!incorrect) res(parseFloat(InputValues));
+				if(!incorrect) {
+					getResult(parseFloat(InputValues))
+					;}
 				break;
 			default:
 				setInputValues((prev) => prev+value)
@@ -48,7 +50,7 @@ const Numpad:FC<Props> = ({res}) => {
 
 
 	return (
-		<>
+		<div>
 		<Input incorrected={incorrect} valData={InputValues} setValData={setValidInputData} />
 		<div className={styles.buttons}>
       {buttons.map(btn => 
@@ -56,7 +58,7 @@ const Numpad:FC<Props> = ({res}) => {
       )}  
      
       </div>
-		</>
+		</div>
 	)
 }
 

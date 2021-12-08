@@ -4,6 +4,7 @@ import Balance from './components/balance/Balance';
 import Modal from './components/modal/Modal';
 import Numpad from './components/numpad/Numpad';
 import Options from './components/options/Options';
+import Withdraw from './components/withdraw/Withdraw';
 import MainContext from './context/MainContext';
 import balanceATM from './logic/balanceATM';
 import getBanknotes from './logic/getBanknotes';
@@ -32,9 +33,9 @@ const {variant} = useContext(MainContext)
  const [balance, setBalance] = useState(variant)
 
  const getResult = (amount: number) => {
-   const res = getBanknotes(amount, variant)
+   const res = getBanknotes(amount, variant);
 
-   Object.keys(res).length > 1 ? setResult(res as ICash) : setOwerflow(true);
+   (typeof res.message !== undefined) ? setResult(res as ICash) : setOwerflow(true);
  }
 
  useMemo(() => {
@@ -52,7 +53,10 @@ useMemo(() => {
   return (
    <div className="App">
      <Options options={options} />
-      <Numpad res={getResult}/>   
+      <div className="container">
+      <Numpad getResult={getResult}/>
+      <Withdraw result={result} />
+        </div>   
       <Modal visible={visible} setVisible={setVisible}>
         <Balance balance={balance} />
       </Modal> 

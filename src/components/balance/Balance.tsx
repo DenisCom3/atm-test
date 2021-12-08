@@ -1,5 +1,7 @@
 import React, { FC } from 'react'
 import { IBanknotes } from '../../types'
+import styles from './Balance.module.css'
+
 
 interface Props {
 	balance: IBanknotes
@@ -7,9 +9,10 @@ interface Props {
 
 const Balance: FC<Props> = ({balance}) => {
 	return (
-		<div>
+		<div className={styles.balance}>
+			<div className={styles.balance__item}>Banknotes on ATM</div>
 			{Object.keys(balance).reverse().map((key) =>
-          <div key={key} className="">{key}: {balance[key]} </div>
+          <div key={key} className={styles.balance__item}>{key}: {balance[key]} </div>
           )}
 		</div>
 	)
