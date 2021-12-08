@@ -7,8 +7,8 @@ const getBanknotes = (amountRequired: number, limits: IBanknotes): ICash | FailM
 	if(biggestAmmount(limits, amountRequired)){
 		return {message: 'sorry'}
 	}
-	const residue = residualAmmount(limits, amountRequired)
-	const validAmmount = amountRequired - residue
+	const Residue = residualAmmount(limits, amountRequired)
+	const validAmmount = amountRequired - Residue
 
 
 
@@ -37,7 +37,7 @@ const getBanknotes = (amountRequired: number, limits: IBanknotes): ICash | FailM
 	const nominals = Object.keys(limits).map(Number).sort((a,b)=> b-a)
 	const givedBanknots = distribution(validAmmount, nominals)
 
-	return {...givedBanknots, residue}
+	return {...givedBanknots, Residue}
 }
 
 

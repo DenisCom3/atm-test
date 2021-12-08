@@ -11,7 +11,7 @@ interface FadingBallsProps {
   
   const Loader: React.FC<FadingBallsProps & React.HTMLProps<HTMLDivElement> > = ({
 	className = "",
-	color = "#0d6efd",
+	color = "#90746b",
 	width = "0.8em",
 	height = "0.8em",
 	style,

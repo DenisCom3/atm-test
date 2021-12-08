@@ -26,9 +26,9 @@ const Withdraw:FC<Props> = ({result}) => {
 		{(Object.keys(result).length > 1) 
 		?
 		renderICash(result as ICash).map((key) => 
-		<div className={styles.output__item} key={key} >{key}: {(result as ICash)[key]} </div>) 
+		<div className={styles.output__item} key={key} >{key} : {(result as ICash)[key]} </div>) 
 		:
-		<div className={styles.output__item} >{result.message === undefined ? `residue: ${(result as ICash).residue}` : 'ATM cannot dispense this amount'}</div>
+		<div className={styles.output__item} >{result.message === undefined ? `Residue: ${(result as ICash).residue}` : 'ATM cannot dispense this amount'}</div>
 		}
 		</div>
 	)

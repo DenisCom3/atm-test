@@ -1,4 +1,6 @@
-
+/* #ddd5c1 - 1 */
+/* #37564c - 2 */
+/* #60937b - 3 */
 
 .options__input{
 	display: flex;
@@ -9,11 +11,11 @@
 	padding-right: 30%;
 	/* margin: 0 auto; */
 	margin-top: 2rem;
+	color: white;
 }
 
 .options__output{
 	font-size: 4rem;
-	background-color: aliceblue;
 	margin-top: 2rem;
 	display: inline-block;
 }
@@ -24,7 +26,7 @@
 	text-align: center;
 	font-size: 4rem;
 	border-radius: 2rem;
-	background-color: bisque;
+	background-color: #60937b;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -32,9 +34,9 @@
 }
 
 .button:hover{
-	background-color: chocolate;
+	background-color: #37564c;
 }
 
 .active{
-	background-color: chocolate;
+	background-color:#37564c;
 }

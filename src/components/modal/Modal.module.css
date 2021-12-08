@@ -12,10 +12,11 @@
 .myModalContent {
 	position: absolute;
 	padding: 2.5rem;
-	background: white;
+	background-color: #798d83;
 	border-radius: 1.6rem;
 	min-width: 37rem;
 	z-index: 3;
+	color: white
 }
 
 

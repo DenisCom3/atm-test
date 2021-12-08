@@ -12,7 +12,9 @@ padding: 1rem;
 	border: 2px solid gray;
 	border-radius: .6rem;
 	display: inline-block;
-	font-size: 1.8rem;
+	font-size: 2rem;
+	font-family: 'Roboto Slab', serif;
+
 }
 
 .input__error{

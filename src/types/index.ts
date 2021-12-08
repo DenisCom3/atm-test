@@ -11,7 +11,7 @@ export interface IBanknotes {
 
 
 export interface ICash extends IBanknotes {
-	residue: number
+	Residue: number
 }
 
 
