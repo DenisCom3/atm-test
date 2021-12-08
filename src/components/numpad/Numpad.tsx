@@ -5,14 +5,18 @@ import styles from './Numpad.module.css'
 
 interface Props {
 	getResult: (v: number) => void
+	setLoader: (v:boolean) => void
 }
 
-const Numpad:FC<Props> = ({getResult}) => {
+const Numpad:FC<Props> = ({getResult,setLoader}) => {
 
 	const buttons = ['1','2','3','4','5','6','7','8','9','.','0','$']
 
 	const [incorrect, setIncorrect] = useState<boolean>(false)
 	const [InputValues, setInputValues] = useState<string>('')
+
+	const audio = new Audio('http://docs.google.com/uc?export=open&id=1xBome5Z7igOBG67mOZMWBL9mfX2ihdu2')
+	
 
 	const isCorrected = (value: string) => {
 		let corrected = true
@@ -36,7 +40,13 @@ const Numpad:FC<Props> = ({getResult}) => {
 		switch (value) {
 			case '$':
 				if(!incorrect) {
-					getResult(parseFloat(InputValues))
+					setLoader(true)
+					audio.play()
+					setTimeout(() => {
+						getResult(parseFloat(InputValues))
+						setLoader(false)
+					},3000)
+
 					;}
 				break;
 			default:

@@ -1,6 +1,8 @@
-import { useContext, useMemo, useState } from 'react';
+
+import { useContext, useEffect, useMemo, useState } from 'react';
 import './App.css';
 import Balance from './components/balance/Balance';
+import Loader from './components/loader/Loader';
 import Modal from './components/modal/Modal';
 import Numpad from './components/numpad/Numpad';
 import Options from './components/options/Options';
@@ -9,6 +11,7 @@ import MainContext from './context/MainContext';
 import balanceATM from './logic/balanceATM';
 import getBanknotes from './logic/getBanknotes';
 import { IBanknotes, ICash, } from './types';
+
 
 function App() {
 
@@ -22,9 +25,9 @@ function App() {
    {'5000': 73, '2000':147, '1000': 279, '500': 356,'200': 696, '100':857,'50': 854}
  ]
 
- const [overflow, setOwerflow] = useState(false)
 
-const {variant} = useContext(MainContext)
+ const [loader, setLoader] = useState(false)
+ const {variant} = useContext(MainContext)
  const [visible, setVisible] = useState(false)
 
  const [result, setResult] = useState<ICash>()
@@ -33,16 +36,19 @@ const {variant} = useContext(MainContext)
  const [balance, setBalance] = useState(variant)
 
  const getResult = (amount: number) => {
-   const res = getBanknotes(amount, variant);
+   const res = getBanknotes(amount, balance);
 
-   (typeof res.message !== undefined) ? setResult(res as ICash) : setOwerflow(true);
+   setResult(res as ICash);
+ 
  }
+
+
 
  useMemo(() => {
   setBalance(variant)
  }, [variant])
 
-useMemo(() => {
+ useMemo(() => {
   if(result === undefined) return 
   setBalance(prev => 
     balanceATM(result, prev)
@@ -54,15 +60,14 @@ useMemo(() => {
    <div className="App">
      <Options options={options} />
       <div className="container">
-      <Numpad getResult={getResult}/>
+      <Numpad setLoader={setLoader} getResult={getResult}/>
+     {loader ? <Loader width='3rem' height='3rem'/> : <></>} 
       <Withdraw result={result} />
         </div>   
       <Modal visible={visible} setVisible={setVisible}>
         <Balance balance={balance} />
       </Modal> 
-      <div className="info" onClick={()=>setVisible(true)}></div>
-
-
+      <div className="info" onClick={() => setVisible(true)}></div>
      
     </div>
     

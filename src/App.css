@@ -22,7 +22,7 @@
 
 .container{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   max-width: 100rem;
   margin-left: 15%;
 }

@@ -4,7 +4,7 @@
 	text-align: center;
 	font-size: 4rem;
 	border-radius: 2rem;
-	background-color: bisque;
+	background-color:cadetblue;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -13,5 +13,7 @@
 }
 
 .button:hover{
-	background-color: chocolate;
+	background-color:rgb(26, 220, 226);
+
+
 }
