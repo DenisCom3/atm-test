@@ -1,5 +1,5 @@
 
-import { useContext, useEffect, useMemo, useState } from 'react';
+import { useContext, useMemo, useState } from 'react';
 import './App.css';
 import Balance from './components/balance/Balance';
 import Loader from './components/loader/Loader';
@@ -42,8 +42,6 @@ function App() {
  
  }
 
-
-
  useMemo(() => {
   setBalance(variant)
  }, [variant])
@@ -58,7 +56,7 @@ function App() {
 
   return (
    <div className="App">
-     <Options options={options} />
+     <Options  options={options} />
       <div className="container">
       <Numpad setLoader={setLoader} getResult={getResult}/>
      {loader ? <Loader width='3rem' height='3rem'/> : <></>} 

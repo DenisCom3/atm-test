@@ -5,7 +5,6 @@ import styles from './Options.module.css'
 
 interface Props {
 	options: IBanknotes[]
-	
 }
 
  const Options:FC<Props> = ({options,}) => {
@@ -23,9 +22,11 @@ interface Props {
 			</div>
 			<div className={styles.options__input} >
 			{options.map((p, i) =>
-				<div className={(JSON.stringify(p) === JSON.stringify(variant)) ? activeButtonColor : defaultButtonColor} key={i} onClick={() => {
-					setVariant(p)
-				}}>{i+1}</div> 
+				<div className={(JSON.stringify(p) === JSON.stringify(variant)) ? activeButtonColor : defaultButtonColor} 
+				key={i} onClick={() => {
+					setVariant(p)}}>
+						{i+1}
+				</div> 
 				)}
 			</div>
 		</div>
